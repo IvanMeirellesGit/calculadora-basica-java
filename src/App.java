@@ -11,14 +11,7 @@ public class App {
         System.out.println(" ---------------------- ");
 
         do {
-            System.out.println("Que operaçao deseja fazer? ");
-            System.out.println(" ---------------------- ");
-
-            System.out.println("1 - Soma");
-            System.out.println("2 - Subtração");
-            System.out.println("3 - Multiplicação");
-            System.out.println("4 - Divisão");
-            System.out.println(" ---------------------- ");
+            calculadora.exibirMenu();
 
             calculadora.setOperador(scan.nextInt());
             // System.out.println(calculadora.getOperador());
