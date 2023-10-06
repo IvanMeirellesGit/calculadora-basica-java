@@ -10,40 +10,35 @@ public class App {
         System.out.println(" -- CALCULADORA JAVA -- ");
         System.out.println(" ---------------------- ");
 
-        System.out.println("Que operaçao deseja fazer? ");
+        do {
+            System.out.println("Que operaçao deseja fazer? ");
+            System.out.println(" ---------------------- ");
 
-        System.out.println("+ - Soma");
-        System.out.println("- - Subtração");
-        System.out.println("* - Multiplicação");
-        System.out.println("/ - Divisão");
+            System.out.println("1 - Soma");
+            System.out.println("2 - Subtração");
+            System.out.println("3 - Multiplicação");
+            System.out.println("4 - Divisão");
+            System.out.println(" ---------------------- ");
 
-        calculadora.setoperador(scan.next());
-        // System.out.println(calculadora.getOperador());
+            calculadora.setOperador(scan.nextInt());
+            // System.out.println(calculadora.getOperador());
 
-        System.out.println("Digite o valor um: ");
-        calculadora.setValorUm(scan.nextDouble());
-        // System.out.println(calculadora.getValorUm());
+            if (calculadora.validarEntrada()) {
 
-        System.out.println("Digite o valor dois: ");
-        calculadora.setValorDois(scan.nextDouble());
-        // System.out.println(calculadora.getValorDois());
+                System.out.println("Digite o valor um: ");
+                calculadora.setValorUm(scan.nextDouble());
+                // System.out.println(calculadora.getValorUm());
 
-        switch (calculadora.getOperador()) {
-            case "+":
-                System.out.println("Resultado da soma: " + calculadora.somar());
-                break;
-            case "-":
-                System.out.println("Resultado da subtração: " + calculadora.subtracao());
-                break;
-            case "*":
-                System.out.println("Resultado da soma: " + calculadora.multiplicacao());
-                break;
-            case "/":
-                System.out.println("Resultado da soma: " + calculadora.divisao());
-                break;
-            default:
-                System.out.println("Operação inválida");
-        }
+                System.out.println("Digite o valor dois: ");
+                calculadora.setValorDois(scan.nextDouble());
+                // System.out.println(calculadora.getValorDois());
 
+                calculadora.realizarCalculo(calculadora.getOperador(), calculadora.getValorUm(),
+                        calculadora.getValorDois());
+            } else {
+                System.out.println(
+                        "Entrada inválida. Certifique-se de inserir números válidos e escolher uma operação válida");
+            }
+        } while (Calculadora.verificarNovaOperacao());
     }
 }
